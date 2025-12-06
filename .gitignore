@@ -34,5 +34,13 @@ build/
 
 
 .env
+.env.local
+.env.production
+application.properties
+application-*.properties
 test-apis.sh
+
+!application.properties.template
 DEPLOYMENT.md
+RENDER_DEPLOYMENT.md
+

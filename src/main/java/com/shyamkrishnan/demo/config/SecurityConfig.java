@@ -1,6 +1,7 @@
 package com.shyamkrishnan.demo.config;
 
 import com.shyamkrishnan.demo.filter.JwtRequestFilter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -24,6 +25,9 @@ import java.util.Arrays;
 public class SecurityConfig {
 
     private final JwtRequestFilter jwtFilter;
+
+    @Value("${frontend.url:https://rideshare-client-blond.vercel.app}")
+    private String frontendUrl;
 
     public SecurityConfig(@Lazy JwtRequestFilter jwtFilter) {
         this.jwtFilter = jwtFilter;
@@ -50,10 +54,18 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("*"));
+        
+        configuration.setAllowedOrigins(Arrays.asList(
+            frontendUrl,
+            "http://localhost:3000",
+            "http://localhost:5173"
+        ));
+        
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
-        configuration.setAllowCredentials(false);
+        configuration.setExposedHeaders(Arrays.asList("Authorization"));
+        configuration.setAllowCredentials(true);
+        configuration.setMaxAge(3600L);
         
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
