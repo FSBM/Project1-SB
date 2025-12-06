@@ -15,4 +15,4 @@ USER spring:spring
 
 COPY --from=build /app/target/*.jar app.jar
 
-ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=$PORT"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
