@@ -36,12 +36,17 @@ build/
 .env
 .env.local
 .env.production
-application.properties
-application.properties.template
-application-*.properties
 test-apis.sh
+render.yaml
+
+# Keep application.properties (now uses env vars)
+# But exclude profile-specific configs
+application-local.properties
+application-dev.properties
+application-prod.properties
 
 !application.properties.template
 DEPLOYMENT.md
 RENDER_DEPLOYMENT.md
+MongoConnectionTest.java
 
