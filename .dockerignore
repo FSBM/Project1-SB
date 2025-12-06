@@ -1,0 +1,11 @@
+target/
+.mvn/
+.git/
+.gitignore
+.idea/
+.vscode/
+*.iml
+*.md
+test-apis.sh
+.env
+*.log
