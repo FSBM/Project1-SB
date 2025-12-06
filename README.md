@@ -2,7 +2,15 @@
 
 ## Overview
 
-This document provides a comprehensive guide to the Ride Sharing Platform's backend system. The platform facilitates seamless connections between passengers seeking transportation and drivers willing to provide rides. Built using Spring Boot and MongoDB, this system offers a robust, secure, and scalable solution for modern ride-sharing needs.
+built the using spring boot with separate controllers, services, and repositories, implemented jwt authentication with spring security for stateless sessions, used mongodb (atls) for data storage with proper role-based access control so passengers can request rides and drivers can accept them, and followed rest api best practices with dtos, validation, and global exception handling throughout.
+
+
+#EXTRA:
+
+- Dockerizing the springboot backend hosted it on render
+- Afterwards created a simple frotnend
+hosted the app on vercel  
+- live link : https://rideshare-client-blond.vercel.app
 
 ## Technology Stack
 
