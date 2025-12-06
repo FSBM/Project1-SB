@@ -37,6 +37,7 @@ build/
 .env.local
 .env.production
 application.properties
+application.properties.template
 application-*.properties
 test-apis.sh
 
